@@ -19,7 +19,7 @@ db.init_app(app)
 @app.route("/")
 def index():
   session['goodread_key'] = 'kHQzDXf3a2fycBlYPlZg'
-  if not session['username']:
+  if not session.has_key('username') or not session['username']:
     return render_template("signup.html")
   else:
     return render_template("success.html", user=session['username'])
@@ -127,4 +127,5 @@ def book_api(book_id):
             "rating": resj['average_rating'],
             "nbr_comments": resj['reviews_count']
         })
+
 
