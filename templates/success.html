@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Success!
+{% endblock %}
+
+{% block body %}
+    <h1>Hi, {{ user }}!</h1>
+    You are a member of our club!
+
+    Start reading now:
+    <form action="{{ url_for('search') }}" method="post">
+        <div class="form-group">
+                <input class="form-control" name="search" placeholder="Search a book!">
+        </div>
+        <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}
+
