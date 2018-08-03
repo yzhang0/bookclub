@@ -22,7 +22,7 @@ def index():
   if not session.get('username') or not session['username']:
     return render_template("signup.html")
   else:
-    return render_template("success.html", user=session['username'])
+    return render_template("success.html", user=session['username'].capitalize())
 
 @app.route("/login")
 def login_page():
