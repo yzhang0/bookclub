@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>Book Details</h1>
-
+    <br>
     <ul>
         <li>ID: {{ book.id }}</li>
         <li>ISBN: {{ book.isbn }}</li>
@@ -16,11 +16,12 @@
         <li>Rating: {{ gr_rating }}</li>
         <li>Number of comments on GoodReads: {{ gr_comment }}</li>
     </ul>
-
+    <br>
+    <br>
     <h2>Reviews</h2>
-    <ul>
+    <ul class="reviews">
         {% for review in reviews %}
-            <li><p>{{ review.user_name }} said: {{ review.comment }}<br>Rating: {{ review.rating }}</p></li>
+            <li>{{ review.user_name }} said: {{ review.comment }}<br>Rating: {{ review.rating }}</li>
         {% else %}
             <li>No reviews.</li>
         {% endfor %}

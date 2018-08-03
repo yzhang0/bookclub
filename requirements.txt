@@ -1,4 +1,7 @@
 Flask
+flask_session
 Flask-Session
 psycopg2
 SQLAlchemy
+flask_sqlalchemy
+requests

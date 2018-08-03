@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <title>{% block title %} {% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+        <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"> -->
     </head>
     <body>
-        <h3><a href="{{ url_for('index') }}">Home</a> </h3>
-        {% if session['username'] %}
-        <h3><a href="{{ url_for('logout') }}">Log out</a> </h3>
-        {% endif %}
         <div class="container">
+            <a href="{{ url_for('index') }}">Home</a>&emsp;
+            {% if session['username'] %}
+            <a href="{{ url_for('logout') }}">Log out</a>
+            {% endif %}
+            <br>
             {% block body %}
             {% endblock %}
         </div>
+
+            <div id="dropDownSelect1"></div>
+
+        <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/animsition/js/animsition.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/select2/select2.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/daterangepicker/moment.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/countdowntime/countdowntime.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     </body>
 </html>
