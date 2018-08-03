@@ -44,7 +44,7 @@ def signin():
       return render_template("error.html", message="Some values are invalid.")
     db.session.add(user)
     db.session.commit()
-    session['username'] = user.name
+    session['username'] = user.name.capitalize()
     return render_template("success.html", user=session['username'])
 
 @app.route("/login", methods=["POST"])
@@ -54,8 +54,8 @@ def login():
 
     client = Users.query.filter(Users.name == name, Users.password == pwd).first()
     if not client:
-        return render_template("error.html", message="Username and password do not match any account.")
-    session['username'] = client.name
+        return render_template("error.html", message="Username %s and password %s do not match any account." % (name, pwd))
+    session['username'] = client.name.capitalize()
     return render_template("success.html", user=session['username'])
 
 @app.route("/logout")
