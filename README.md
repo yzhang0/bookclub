@@ -10,3 +10,7 @@ export FLASK_APP=application.py
 flask run
 Go to the URL given to it.
 ```
+
+### Demo:
+
+![alt text](bookclub.gif "bookclub app")
